@@ -99,44 +99,44 @@ public class AppsFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_refresh:
-                mAppsViewModel.updatePackageList(requireContext());
-                return true;
-            case R.id.action_sort_label:
-                mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_LABEL).apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_sort_package_name:
-                mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_PACKAGE_NAME).apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_sort_install_time:
-                mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_INSTALL_TIME).apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_sort_update_time:
-                mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_UPDATE_TIME).apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_debuggable_first:
-                mSharedPreferences.edit()
-                        .putBoolean(PREF_KEY_SHOW_DEBUGGABLE_FIRST, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_DEBUGGABLE_FIRST, false))
-                        .apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_show_system:
-                mSharedPreferences.edit()
-                        .putBoolean(PREF_KEY_SHOW_SYSTEM, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_SYSTEM, false))
-                        .apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
-            case R.id.action_show_debug:
-                mSharedPreferences.edit()
-                        .putBoolean(PREF_KEY_SHOW_DEBUG, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_DEBUG, false))
-                        .apply();
-                requireActivity().invalidateOptionsMenu();
-                return true;
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_refresh) {
+            mAppsViewModel.updatePackageList(requireContext());
+            return true;
+        } else if (itemId == R.id.action_sort_label) {
+            mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_LABEL).apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_sort_package_name) {
+            mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_PACKAGE_NAME).apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_sort_install_time) {
+            mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_INSTALL_TIME).apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_sort_update_time) {
+            mSharedPreferences.edit().putInt(PREF_KEY_SORT_ORDER, SORT_ORDER_UPDATE_TIME).apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_debuggable_first) {
+            mSharedPreferences.edit()
+                    .putBoolean(PREF_KEY_SHOW_DEBUGGABLE_FIRST, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_DEBUGGABLE_FIRST, false))
+                    .apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_show_system) {
+            mSharedPreferences.edit()
+                    .putBoolean(PREF_KEY_SHOW_SYSTEM, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_SYSTEM, false))
+                    .apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
+        } else if (itemId == R.id.action_show_debug) {
+            mSharedPreferences.edit()
+                    .putBoolean(PREF_KEY_SHOW_DEBUG, !mSharedPreferences.getBoolean(PREF_KEY_SHOW_DEBUG, false))
+                    .apply();
+            requireActivity().invalidateOptionsMenu();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

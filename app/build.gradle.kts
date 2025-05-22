@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.refine)
 }
 
@@ -39,24 +40,18 @@ android {
         }
     }
 
-    lint {
-        checkReleaseBuilds = false
-        abortOnError = false
-    }
-
     buildFeatures {
         dataBinding = true
         buildConfig = true
     }
 
-    compileSdk = 35
+    namespace = "tw.idv.palatis.xappdebug2"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "tw.idv.palatis.xappdebug"
         minSdk = 24
         versionCode = 100006
         versionName = "1.0.6"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         project.ext.set("archivesBaseName", "$applicationId-$versionName-$versionCode")
     }
 
@@ -69,19 +64,12 @@ android {
             if (signingConfigs.findByName("release")?.storeFile != null) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            aaptOptions.cruncherEnabled = true
+
             isShrinkResources = true
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-
-    namespace = "tw.idv.palatis.xappdebug"
 }
 
 // android.applicationVariants.all {
@@ -107,9 +95,13 @@ android {
 
 dependencies {
     // implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    // compileOnly(project(":hiddenapi-stubs"))
     implementation(libs.refine.runtime)
     implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.ui)
+    implementation(libs.compose.runtime)
+    implementation(libs.compose.material3)
     implementation(libs.appcompat)
     implementation(libs.preference)
     implementation(libs.constraintlayout)

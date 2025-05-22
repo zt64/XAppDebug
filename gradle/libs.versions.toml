@@ -1,7 +1,8 @@
 [versions]
 android = "8.10.0"
 kotlin = "2.1.21"
-compose = "2025.05.00"
+androidx-activity = "1.10.1"
+compose = "2025.05.01"
 refine = "4.4.0"
 material = "1.12.0"
 appcompat = "1.7.0"
@@ -13,7 +14,11 @@ xposed = "82"
 
 [libraries]
 refine-runtime = { module = "dev.rikka.tools.refine:runtime", version.ref = "refine" }
+androidx-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-runtime = { module = "androidx.compose.runtime:runtime" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 preference = { module = "androidx.preference:preference", version.ref = "preference" }
@@ -28,5 +33,6 @@ xposed-api-sources = { module = "de.robv.android.xposed:api", version.ref = "xpo
 android-application = { id = "com.android.application", version.ref = "android" }
 android-library = { id = "com.android.library", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 refine = { id = "dev.rikka.tools.refine", version.ref = "refine" }
 

@@ -1,11 +1,11 @@
-package tw.idv.palatis.xappdebug.xposed;
+package tw.idv.palatis.xappdebug2.xposed;
 
 import static android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE;
 import static android.util.Log.getStackTraceString;
 import static de.robv.android.xposed.XposedBridge.hookAllMethods;
 import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
-import static tw.idv.palatis.xappdebug.Constants.CONFIG_PATH_FORMAT;
-import static tw.idv.palatis.xappdebug.Constants.LOG_TAG;
+import static tw.idv.palatis.xappdebug2.Constants.CONFIG_PATH_FORMAT;
+import static tw.idv.palatis.xappdebug2.Constants.LOG_TAG;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;

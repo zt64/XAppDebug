@@ -1,16 +1,16 @@
-package tw.idv.palatis.xappdebug.adapters;
+package tw.idv.palatis.xappdebug2.adapters;
 
 import static android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE;
 import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_SHORT;
-import static tw.idv.palatis.xappdebug.Constants.PREF_KEY_SHOW_DEBUG;
-import static tw.idv.palatis.xappdebug.Constants.PREF_KEY_SHOW_DEBUGGABLE_FIRST;
-import static tw.idv.palatis.xappdebug.Constants.PREF_KEY_SHOW_SYSTEM;
-import static tw.idv.palatis.xappdebug.Constants.PREF_KEY_SORT_ORDER;
-import static tw.idv.palatis.xappdebug.Constants.SORT_ORDER_INSTALL_TIME;
-import static tw.idv.palatis.xappdebug.Constants.SORT_ORDER_LABEL;
-import static tw.idv.palatis.xappdebug.Constants.SORT_ORDER_PACKAGE_NAME;
-import static tw.idv.palatis.xappdebug.Constants.SORT_ORDER_UPDATE_TIME;
+import static tw.idv.palatis.xappdebug2.Constants.PREF_KEY_SHOW_DEBUG;
+import static tw.idv.palatis.xappdebug2.Constants.PREF_KEY_SHOW_DEBUGGABLE_FIRST;
+import static tw.idv.palatis.xappdebug2.Constants.PREF_KEY_SHOW_SYSTEM;
+import static tw.idv.palatis.xappdebug2.Constants.PREF_KEY_SORT_ORDER;
+import static tw.idv.palatis.xappdebug2.Constants.SORT_ORDER_INSTALL_TIME;
+import static tw.idv.palatis.xappdebug2.Constants.SORT_ORDER_LABEL;
+import static tw.idv.palatis.xappdebug2.Constants.SORT_ORDER_PACKAGE_NAME;
+import static tw.idv.palatis.xappdebug2.Constants.SORT_ORDER_UPDATE_TIME;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -37,8 +37,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import tw.idv.palatis.xappdebug.Configuration;
-import tw.idv.palatis.xappdebug.R;
+import tw.idv.palatis.xappdebug2.Configuration;
+import tw.idv.palatis.xappdebug2.R;
 
 public class InstalledPackageAdapter extends RecyclerView.Adapter<InstalledPackageAdapter.ViewHolder>
         implements SharedPreferences.OnSharedPreferenceChangeListener {
